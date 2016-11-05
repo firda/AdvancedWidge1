@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
             arJumlah[i] = i + 1;
         }
         ArrayAdapter adapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_spinner_item, arJumlah);
+                android.R.layout.simple_spinner_dropdown_item, arJumlah);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spJumlah.setAdapter(adapter);
 
@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         spJumlah.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 addEditText((int) spJumlah.getSelectedItem());
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
+                //
             }
         });
     }
@@ -61,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
             llAnak.addView(v);
         }
     }
+
 
     private void doProses() {
         int jumlah = (int) spJumlah.getSelectedItem();
@@ -78,8 +81,13 @@ public class MainActivity extends AppCompatActivity {
                 umur = "0";
             if (!nama.isEmpty())
                 hasil += "Anak ke-" + i + ": " + nama + " umur " + umur + " tahun\n";
-        }
 
+        }
         tvHasil.setText(hasil);
     }
 }
+
+
+
+
+
